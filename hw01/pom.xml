@@ -75,8 +75,7 @@
         </dependency>
 
     </dependencies>
-
-    <build>
+       <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -100,12 +99,24 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.3.0</version>
                 <!--Настроить для создания jar с зависимостями-->
+            </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>ru.otus.hw.Application</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
             </plugin>
         </plugins>
     </build>

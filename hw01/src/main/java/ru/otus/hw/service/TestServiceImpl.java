@@ -28,7 +28,7 @@ public class TestServiceImpl implements TestService {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            ioService.printLine(e.getMessage());
         }
     }
 }

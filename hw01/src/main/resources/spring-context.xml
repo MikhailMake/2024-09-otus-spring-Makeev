@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="appProperties" class="ru.otus.hw.config.AppProperties">
-        <constructor-arg index="0" value="src\\main\\resources\\questions.csv">
+        <constructor-arg index="0" value="questions.csv">
         </constructor-arg>
     </bean>
 
