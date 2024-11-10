@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import ru.otus.hw.dao.QuestionDao;
 import ru.otus.hw.domain.Answer;
 import ru.otus.hw.domain.Question;
+
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -17,26 +18,21 @@ public class TestServiceImpl implements TestService {
         ioService.printLine("");
         ioService.printFormattedLine("Please answer the questions below%n");
         // Получить вопросы из дао и вывести их с вариантами ответов
-        List<Question> beans = getData();
-        try {
-            printQuestions(beans);
-        } catch (Exception e) {
-            ioService.printLine(e.getMessage());
+        List<Question> questions = getData();
+        for (Question question : questions) {
+            printQuestion(question);
         }
     }
 
-    private List<Question> getData()    {
+    private List<Question> getData() {
         return qestionDao.findAll();
     }
 
-    private void printQuestions(List<Question> beans)    {
-        for (int i = 0; i < beans.size(); i++) {
-            ioService.printLine(beans.get(i).text());
-            List<Answer> answers = beans.get(i).answers();
-            for (int k = 0; k < answers.size(); k++) {
-                ioService.printLine(k + 1 + ". " + answers.get(k).text() +
-                        " [" + String.valueOf(answers.get(k).isCorrect()) + "]");
-            }
+    private void printQuestion(Question question) {
+        ioService.printLine(question.text());
+        List<Answer> answers = question.answers();
+        for (int k = 0; k < answers.size(); k++) {
+            ioService.printLine(k  + ". " + answers.get(k).text());
         }
     }
 }

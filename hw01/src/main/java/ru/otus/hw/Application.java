@@ -11,6 +11,5 @@ public class Application {
                 new ClassPathXmlApplicationContext("/spring-context.xml");
         var testRunnerService = context.getBean(TestRunnerService.class);
         testRunnerService.run();
-
     }
 }
