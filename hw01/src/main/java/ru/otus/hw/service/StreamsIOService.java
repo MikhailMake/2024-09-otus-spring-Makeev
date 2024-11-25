@@ -10,9 +10,9 @@ public class StreamsIOService implements IOService {
     }
 
     @Override
-    public String printLine(String s) {
+    public void printLine(String s) {
         printStream.println(s);
-        return s;
+      //  return s;
     }
 
     @Override
