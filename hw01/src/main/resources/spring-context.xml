@@ -10,8 +10,6 @@
         <constructor-arg index="0" value="questions.csv">
         </constructor-arg>
      </bean>
-
-
     <bean id="ioService" class="ru.otus.hw.service.StreamsIOService">
         <constructor-arg >
             <util:constant static-field="java.lang.System.out"/>
