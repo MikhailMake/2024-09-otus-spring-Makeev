@@ -1,6 +1,7 @@
 package ru.otus.hw.service;
 
 import lombok.RequiredArgsConstructor;
+import ru.otus.hw.exceptions.QuestionReadException;
 
 @RequiredArgsConstructor
 public class TestRunnerServiceImpl implements TestRunnerService {
@@ -13,8 +14,8 @@ public class TestRunnerServiceImpl implements TestRunnerService {
     public void run() {
         try {
             testService.executeTest();
-        } catch (Exception e) {
-            ioService.printLine(e.getMessage());
+        } catch (QuestionReadException e) {
+            ioService.printLine("Не удалось прочитать вопросы теста");
         }
     }
 }
