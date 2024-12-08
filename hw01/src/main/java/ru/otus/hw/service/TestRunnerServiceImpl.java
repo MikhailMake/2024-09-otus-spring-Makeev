@@ -15,7 +15,7 @@ public class TestRunnerServiceImpl implements TestRunnerService {
         try {
             testService.executeTest();
         } catch (QuestionReadException e) {
-            ioService.printLine("Не удалось прочитать вопросы теста");
+            ioService.printLine("The test questions could not be read");
         }
     }
 }
