@@ -42,12 +42,8 @@ public class TestServiceImpl implements TestService {
     }
 
     private Boolean isRightAnswer(List<Answer> answers) {
-        Boolean isAnswerValid = false;
-        Integer numAnswer = ioService.readIntForRange(0, answers.size() - 1,
+        int numAnswer = ioService.readIntForRange(0, answers.size() - 1,
                 "Please enter number between 0 and " + answers.size() + ".");
-        if (answers.get(numAnswer).isCorrect()) {
-            isAnswerValid = true;
-        }
-        return isAnswerValid;
+        return (answers.get(numAnswer).isCorrect());
     }
 }
