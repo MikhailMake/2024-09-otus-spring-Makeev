@@ -1,11 +1,11 @@
 package ru.otus.hw.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.otus.hw.exceptions.QuestionReadException;
 
 @RequiredArgsConstructor
-@Component
+@Service
 public class TestRunnerServiceImpl implements TestRunnerService {
 
     private final TestService testService;
