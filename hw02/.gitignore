@@ -1,6 +1,5 @@
 target/
 dependency-reduced-pom.xml
-*.mvn
 
 ### STS ###
 .apt_generated
@@ -12,11 +11,10 @@ dependency-reduced-pom.xml
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
-*.class
 
 ### NetBeans ###
 /nbproject/private/
