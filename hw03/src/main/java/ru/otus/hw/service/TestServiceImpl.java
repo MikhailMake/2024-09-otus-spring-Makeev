@@ -47,7 +47,7 @@ public class TestServiceImpl implements TestService {
     private boolean isRightAnswer(List<Answer> answers) {
         int numAnswer = ioService.readIntForRange(0, answers.size() - 1,
                 ioService.getMessage("TestService.is.right.answer",
-                        answers.size()-1));
+                        answers.size() - 1));
         return (answers.get(numAnswer).isCorrect());
     }
 }
