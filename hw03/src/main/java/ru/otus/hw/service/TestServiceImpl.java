@@ -44,9 +44,10 @@ public class TestServiceImpl implements TestService {
         }
     }
 
-    private Boolean isRightAnswer(List<Answer> answers) {
+    private boolean isRightAnswer(List<Answer> answers) {
         int numAnswer = ioService.readIntForRange(0, answers.size() - 1,
-                "Please enter number between 0 and " + answers.size() + ".");
+                ioService.getMessage("TestService.is.right.answer",
+                        answers.size()-1));
         return (answers.get(numAnswer).isCorrect());
     }
 }
