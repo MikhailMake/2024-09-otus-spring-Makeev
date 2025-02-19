@@ -1,7 +1,5 @@
 package ru.otus.hw.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,9 +9,8 @@ public class LocalizedIOServiceImpl implements LocalizedIOService {
 
     private final IOService ioService;
 
-    @Autowired
     public LocalizedIOServiceImpl(LocalizedMessagesService localizedMessagesService,
-                                  @Qualifier("StreamsIOService")IOService ioService) {
+                                  IOService ioService) {
         this.localizedMessagesService = localizedMessagesService;
         this.ioService = ioService;
     }

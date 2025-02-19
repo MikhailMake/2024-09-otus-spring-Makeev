@@ -1,5 +1,6 @@
 package ru.otus.hw.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import ru.otus.hw.config.LocaleConfig;
@@ -11,6 +12,7 @@ public class LocalizedMessagesServiceImpl implements LocalizedMessagesService {
 
     private final MessageSource messageSource;
 
+    @Autowired
     public LocalizedMessagesServiceImpl(LocaleConfig localeConfig, MessageSource messageSource) {
         this.localeConfig = localeConfig;
         this.messageSource = messageSource;

@@ -1,9 +1,3 @@
-test:
-  rightAnswersCountToPass: 3
-  locale: ru-ru
-  fileNameByLocaleTag:
-    ru-RU: questions_ru.csv
-    en-US: questions.csv
 spring:
   messages:
     baseName: messages
@@ -14,3 +8,9 @@ spring:
   shell:
     interactive:
       enabled: false
+test:
+  rightAnswersCountToPass: 3
+  locale: ru-ru
+  fileNameByLocaleTag:
+    ru-RU: questions_ru.csv
+    en-US: questions.csv

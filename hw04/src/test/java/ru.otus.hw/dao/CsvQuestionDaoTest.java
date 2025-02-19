@@ -4,28 +4,40 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import ru.otus.hw.config.AppProperties;
+import ru.otus.hw.config.LocaleConfig;
+import ru.otus.hw.config.TestConfig;
 import ru.otus.hw.config.TestFileNameProvider;
 import ru.otus.hw.domain.Question;;
 import ru.otus.hw.domain.Answer;
 
 import java.util.List;
+import java.util.Locale;
 
 @SpringBootTest
+//@EnableConfigurationProperties(AppProperties.class)
 public class CsvQuestionDaoTest {
 
-    @Mock
+    @MockBean
+    private LocaleConfig localeConfig;
+
+    @MockBean
+    private TestConfig testConfig;
+
+    @MockBean
     private TestFileNameProvider fileNameProvider;
 
-    @InjectMocks
+    @Autowired
     private CsvQuestionDao csvQuestionDao;
 
     @Test
     void testFindAll() {
         Answer answer1, answer2, answer3, answer4;
-
         Mockito.when(fileNameProvider.getTestFileName()).thenReturn("questions.csv");
-
         answer1 = new Answer("Science doesn't know this yet", true);
         answer2 = new Answer("Certainly. The red UFO is from Mars. And green is from Venus", false);
         answer3 = new Answer("Absolutely not", false);

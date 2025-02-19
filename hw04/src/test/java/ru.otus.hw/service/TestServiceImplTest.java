@@ -6,6 +6,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.otus.hw.domain.Answer;
 
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.List;
 @SpringBootTest
 public class TestServiceImplTest {
 
-    @Mock
-    @Qualifier("StreamsIOService")
+    @MockBean
+    //@Qualifier("StreamsIOService")
     private IOService ioService;
 
     @Test
