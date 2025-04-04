@@ -27,14 +27,14 @@ public class JdbcGenreRepository implements GenreRepository {
 
     @Override
     public List<Genre> findAll() {
-        return jdbc.query("select id, name from genres", new JdbcGenreRepository.GnreRowMapper());
+        return jdbc.query("select id, name from genres", new GnreRowMapper());
     }
 
     @Override
     public Optional<Genre> findById(long id) {
         Map<String, Object> params = Collections.singletonMap("id", id);
-        return  Optional.of(namedParameterJdbcOperations.queryForObject(
-                "select id, name from genres where id = :id", params, new JdbcGenreRepository.GnreRowMapper()));
+        return  Optional.ofNullable(namedParameterJdbcOperations.queryForObject(
+                "select id, name from genres where id = :id", params, new GnreRowMapper()));
     }
 
     private static class GnreRowMapper implements RowMapper<Genre> {

@@ -39,8 +39,8 @@ public class JdbcBookRepository implements BookRepository {
                         "FROM books " +
                         "LEFT JOIN authors ON authors.id = books.author_id " +
                         "LEFT JOIN genres ON genres.id = books.genre_id where books.id = :id", params,
-                new JdbcBookRepository.BookRowMapper());
-       return books.isEmpty() ? Optional.empty() : Optional.of(books.get(0));
+                new BookRowMapper());
+       return books.isEmpty() ? Optional.empty() : Optional.ofNullable(books.get(0));
     }
 
     //todo Добавить comments
@@ -51,7 +51,7 @@ public class JdbcBookRepository implements BookRepository {
                 "FROM books " +
                 "LEFT JOIN authors ON authors.id = books.author_id " +
                 "LEFT JOIN genres ON genres.id = books.genre_id "
-                , new JdbcBookRepository.BookRowMapper());
+                , new BookRowMapper());
     }
 
     @Override

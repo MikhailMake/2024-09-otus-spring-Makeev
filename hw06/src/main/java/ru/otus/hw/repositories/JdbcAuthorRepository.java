@@ -25,14 +25,14 @@ public class JdbcAuthorRepository implements AuthorRepository {
 
     @Override
     public List<Author> findAll() {
-        return jdbc.query("select id, full_name from authors", new JdbcAuthorRepository.AuthorRowMapper());
+        return jdbc.query("select id, full_name from authors", new AuthorRowMapper());
     }
 
     @Override
     public Optional<Author> findById(long id) {
-        return Optional.of(namedParameterJdbcOperations.queryForObject(
+        return Optional.ofNullable(namedParameterJdbcOperations.queryForObject(
                 "select id, full_name from authors where id = :id",
-                Map.of("id", id), new JdbcAuthorRepository.AuthorRowMapper()
+                Map.of("id", id), new AuthorRowMapper()
         ));
     }
 

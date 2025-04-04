@@ -34,15 +34,15 @@ public class JdbcCommentRepository implements CommentRepository {
         Map<String, Object> params = Collections.singletonMap("id", id);
         return namedParameterJdbcOperations.query(
                 "select id, text from comments  where book_id = :id",
-                params,new JdbcCommentRepository.CommentRowMapper());
+                params,new CommentRowMapper());
 
     }
 
     @Override
     public Optional<Comment> findById(long id) {
         Map<String, Object> params = Collections.singletonMap("id", id);
-        return  Optional.of(namedParameterJdbcOperations.queryForObject(
-                "select id, text from comments where id = :id", params, new JdbcCommentRepository.CommentRowMapper()));
+        return  Optional.ofNullable(namedParameterJdbcOperations.queryForObject(
+                "select id, text from comments where id = :id", params, new CommentRowMapper()));
     }
 
     @Override
